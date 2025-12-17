@@ -18,3 +18,6 @@ A simple digital clock built using HTML, CSS, and JavaScript.
 - DOM manipulation
 - setInterval
 - Theme toggling using CSS classes
+
+## Live Demo
+- https://zeel200.github.io/digital-clock/
