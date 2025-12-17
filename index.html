@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <title>Digital Clock</title>
+</head>
+
+<body>
+     <h1 id="clock">00:00:00</h1>
+
+     <button onclick="toggleTheme()">Change Theme</button>
+
+</body>
+
+<style>
+     body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          font-family: Arial;
+     }
+
+     body.light {
+          background: #ffffff;
+          color: #000;
+
+     }
+
+     body.dark {
+          background: #111;
+          color: #00ffcc;
+     }
+
+     button {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          padding: 15px;
+          border-radius: 80px;
+          border-width: 0px;
+          font: calibri;
+          cursor: pointer;
+          color: #ffffff;
+          background-color: #0D3B66;
+     }
+
+     button:hover {
+          background-color: rgb(92, 70, 105);
+          font-weight: bold;
+          color: white;
+     }
+
+     #clock {
+          font-size: 100px;
+     }
+</style>
+
+<script>
+     function updateClock() {
+          const now = new Date();
+
+          let hours = now.getHours();
+          const minutes = now.getMinutes();
+          const seconds = now.getSeconds();
+
+          const ampm = hours >= 12 ? "PM" : "AM";
+          hours = hours % 12;
+          hours = hours ? hours : 12
+          console.log(now);
+
+          function formatTime(time) {
+               return time < 10 ? "0" + time : time
+          }
+
+
+          document.getElementById("clock").innerText = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)} ${ampm}`;
+
+     }
+
+     function toggleTheme() {
+          document.body.classList.toggle("light");
+          document.body.classList.toggle("dark");
+     }
+
+     updateClock();
+     setInterval(updateClock, 1000);
+</script>
+
+</html>
